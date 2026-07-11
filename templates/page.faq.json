@@ -1,0 +1,116 @@
+{
+  "sections": {
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I wear during my massage?",
+            "icon": "none",
+            "row_content": "<p>You'll be undressed to your comfort level and fully draped with a sheet throughout your session — only the area being worked on is ever uncovered.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How early should I arrive for my appointment?",
+            "icon": "none",
+            "row_content": "<p>Please arrive 10–15 minutes before your scheduled time to fill out a short intake form and settle in.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your cancellation policy?",
+            "icon": "none",
+            "row_content": "<p>We kindly ask for at least 24 hours' notice if you need to cancel or reschedule. Late cancellations and no-shows may be subject to a fee.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you accept insurance?",
+            "icon": "none",
+            "row_content": "<p>We don't bill insurance directly, but we're happy to provide a receipt you can submit for reimbursement if your plan covers massage therapy.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you offer gift cards?",
+            "icon": "none",
+            "row_content": "<p>Yes! Gift cards are available for any service and make a wonderful gift. Contact us to purchase one.</p>"
+          }
+        },
+        "q6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is massage safe during pregnancy?",
+            "icon": "none",
+            "row_content": "<p>Yes — our prenatal massage is designed specifically for expectant mothers. Let us know if you're pregnant when booking so we can tailor your session.</p>"
+          }
+        },
+        "q7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I have an injury or medical condition?",
+            "icon": "none",
+            "row_content": "<p>Let us know about any injuries, medical conditions, or areas of concern before your session so we can adjust pressure and technique accordingly.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"],
+      "settings": {
+        "caption": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 40
+      }
+    },
+    "cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Still Have Questions?",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We're happy to help — reach out any time.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "/pages/contact",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 20,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["faq", "cta"]
+}

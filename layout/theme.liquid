@@ -258,6 +258,12 @@
         height: 100%;
       }
 
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
       body {
         display: flex;
         flex-direction: column;
