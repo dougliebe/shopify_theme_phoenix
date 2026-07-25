@@ -1,0 +1,186 @@
+{%- style -%}
+  .nph-award-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 5% {{ section.settings.padding_bottom }}px;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  }
+
+  .nph-award-{{ section.id }} .nph-award-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+  }
+
+  .nph-award-{{ section.id }} .nph-award-media {
+    width: 15rem;
+    height: 15rem;
+    flex-shrink: 0;
+  }
+
+  .nph-award-{{ section.id }} .nph-award-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .nph-award-{{ section.id }} .nph-award-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0.2rem dashed rgba(var(--color-foreground), 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 0.5);
+    padding: 1rem;
+  }
+
+  .nph-award-{{ section.id }} .nph-award-eyebrow {
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--color-button));
+    font-weight: 600;
+  }
+
+  .nph-award-{{ section.id }} .nph-award-heading {
+    font-family: var(--font-heading-family);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .nph-award-{{ section.id }} .nph-award-text {
+    font-size: 1.6rem;
+    line-height: 1.65;
+    color: rgba(var(--color-foreground), 0.75);
+    max-width: 56rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .nph-award-{{ section.id }} .nph-award-inner {
+      flex-direction: row;
+      text-align: left;
+      gap: 4rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nph-award-{{ section.id }} color-{{ section.settings.color_scheme }}">
+  <div class="nph-award-inner">
+    <div class="nph-award-media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 400
+          | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.image.alt
+        }}
+      {%- else -%}
+        <div class="nph-award-placeholder">Upload award badge image</div>
+      {%- endif -%}
+    </div>
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="nph-award-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="nph-award-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="nph-award-text">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <div style="margin-top: 2rem;">
+          <a
+            href="{{ section.settings.button_link }}"
+            class="button button--secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Award badge",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Badge image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Community Recognition"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "2025 Best of Stillwater Finalist"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body text",
+      "default": "<p>Nine Phoenix Massage is proud to be named a finalist in the Stillwater News Press 2025 Best of Stillwater awards.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "View the Gallery"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Award badge"
+    }
+  ]
+}
+{% endschema %}

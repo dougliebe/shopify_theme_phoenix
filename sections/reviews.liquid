@@ -1,0 +1,216 @@
+{%- style -%}
+  .nph-reviews-{{ section.id }} {
+    padding: {{ section.settings.padding_top }}px 5% {{ section.settings.padding_bottom }}px;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-reviews-header {
+    text-align: center;
+    max-width: 64rem;
+    margin: 0 auto 6rem;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-reviews-eyebrow {
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--color-button));
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-reviews-heading {
+    font-family: var(--font-heading-family);
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+    background: rgba(var(--color-foreground), 0.12);
+    max-width: 110rem;
+    margin: 0 auto;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  }
+
+  @media screen and (min-width: 750px) {
+    .nph-reviews-{{ section.id }} .nph-reviews-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-card {
+    padding: 3.4rem 2.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-stars {
+    color: rgb(var(--color-button));
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-quote {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(var(--color-foreground), 0.8);
+    flex: 1;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 0.6rem;
+    padding-top: 1.4rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-name {
+    font-family: var(--font-heading-family);
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-link {
+    font-size: 1.3rem;
+    color: rgba(var(--color-foreground), 0.55);
+    text-decoration: none;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-link:hover {
+    color: rgb(var(--color-button));
+  }
+{%- endstyle -%}
+
+<div class="nph-reviews-{{ section.id }} color-{{ section.settings.color_scheme }}">
+  <div class="nph-reviews-header">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="nph-reviews-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="nph-reviews-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+  </div>
+  <div class="nph-reviews-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'review' -%}
+        <div class="nph-review-card" {{ block.shopify_attributes }}>
+          <div class="nph-review-stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+            {%- for i in (1..5) -%}
+              {%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}
+            {%- endfor -%}
+          </div>
+          <div class="nph-review-quote">&ldquo;{{ block.settings.quote }}&rdquo;</div>
+          <div class="nph-review-meta">
+            <span class="nph-review-name">{{ block.settings.name }}</span>
+            {%- if block.settings.link != blank -%}
+              <a
+                href="{{ block.settings.link }}"
+                class="nph-review-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read on Google ↗
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Reviews"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What clients are saying"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review text",
+          "default": "Great experience!"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer name",
+          "default": "Customer name"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star rating",
+          "default": 5
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link to review"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}

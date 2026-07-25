@@ -15,6 +15,19 @@
         "color_scheme": "scheme-1"
       }
     },
+    "award": {
+      "type": "award-badge",
+      "settings": {
+        "eyebrow": "Community Recognition",
+        "heading": "2025 Best of Stillwater Finalist",
+        "text": "<p>Nine Phoenix Massage is proud to be named a finalist in the Stillwater News Press 2025 Best of Stillwater awards.</p>",
+        "button_label": "View the Gallery",
+        "button_link": "https://stillwaternewspress2.secondstreetapp.com/Best-of-Stillwater-2025/gallery/491448777/",
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "services": {
       "type": "service-list",
       "blocks": {
@@ -110,6 +123,46 @@
         "color_scheme": "scheme-1"
       }
     },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "doug": {
+          "type": "review",
+          "settings": {
+            "quote": "Best massage in Stillwater. Timely, professional, and high-quality massage. Thank you!!",
+            "name": "Doug",
+            "rating": 5,
+            "link": "https://maps.app.goo.gl/4KXevEzV5g12XBpt5"
+          }
+        },
+        "halley": {
+          "type": "review",
+          "settings": {
+            "quote": "best massage in stillwater. you can get in almost instantly. she's super flexible with times and so so good!! 11/10 recommended",
+            "name": "Halley",
+            "rating": 5,
+            "link": "https://share.google/cyheXtTBH9CwnssMo"
+          }
+        },
+        "meekai": {
+          "type": "review",
+          "settings": {
+            "quote": "She's the best. Very knowledgeable and helpful, accommodating, and fast responding. Space is cozy and clean. I've done the Swedish and Deep Tissue. I leave with knowledge on how to continue addressing any problem areas I may have and feeling better. Highly recommend.",
+            "name": "Mee-Kai",
+            "rating": 5,
+            "link": "https://share.google/hpY2OY9WtRd4Qivke"
+          }
+        }
+      },
+      "block_order": ["doug", "halley", "meekai"],
+      "settings": {
+        "eyebrow": "Reviews",
+        "heading": "What clients are saying",
+        "color_scheme": "scheme-2",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
     "faq": {
       "type": "collapsible-content",
       "blocks": {
@@ -164,5 +217,5 @@
       }
     }
   },
-  "order": ["hero", "services", "about", "faq"]
+  "order": ["hero", "award", "services", "about", "reviews", "faq"]
 }
