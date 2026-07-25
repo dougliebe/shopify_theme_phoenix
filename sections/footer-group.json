@@ -1,1 +1,58 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"hours":{"type":"newsletter","blocks":{"heading":{"type":"heading","settings":{"heading":"Studio Hours","heading_size":"h1"}},"paragraph":{"type":"paragraph","settings":{"text":"<p>Monday – Friday: 9:00am – 7:00pm<br>Saturday: 9:00am – 5:00pm<br>Sunday: Closed</p><p>Evening and weekend appointments available by request.</p>"}}},"block_order":["heading","paragraph"],"settings":{"color_scheme":"scheme-4","full_width":true,"padding_top":60,"padding_bottom":60}},"footer":{"type":"footer","blocks":{"links":{"type":"link_list","settings":{"heading":"Quick Links","menu":"footer"}},"visit":{"type":"text","settings":{"heading":"Visit Us","subtext":"<p>123 Main Street, Suite 2<br>Your City, ST 00000</p><p>(555) 123-4567<br>hello@yourstudio.com</p>"}}},"block_order":["links","visit"],"settings":{"color_scheme":"scheme-4","newsletter_enable":false,"newsletter_heading":"Subscribe to our emails","enable_follow_on_shop":false,"show_social":true,"enable_country_selector":false,"enable_language_selector":false,"payment_enable":false,"show_policy":true,"margin_top":0,"padding_top":40,"padding_bottom":36}}},"order":["hours","footer"]}
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "visit": {
+      "type": "visit-band",
+      "blocks": {
+        "visit": {
+          "type": "column",
+          "settings": {
+            "heading": "Visit Us",
+            "content": "<p>130 S Main St<br>Stillwater, OK 74074</p>"
+          }
+        },
+        "hours": {
+          "type": "column",
+          "settings": {
+            "heading": "Hours",
+            "content": "<p>Mon – Sat: 9:30am – 8:00pm<br>Sunday: 10:00am – 6:00pm</p>"
+          }
+        },
+        "contact": {
+          "type": "column",
+          "settings": {
+            "heading": "Contact",
+            "content": "<p><a href=\"tel:5807168851\">(580) 716-8851</a></p><p>Walk-ins welcome — same-day appointments encouraged.</p>"
+          }
+        }
+      },
+      "block_order": ["visit", "hours", "contact"],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": ["visit", "footer"]
+}

@@ -1,0 +1,209 @@
+{%- style -%}
+  .nph-about-{{ section.id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-media {
+    position: relative;
+    min-height: 32rem;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-media img,
+  .nph-about-{{ section.id }} .nph-about-media .placeholder-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.2rem;
+    padding: 7rem 8%;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-eyebrow {
+    font-size: 1.3rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgb(var(--color-button));
+    font-weight: 600;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-heading {
+    font-family: var(--font-heading-family);
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-text {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  .nph-about-{{ section.id }} .nph-about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin-top: 1rem;
+  }
+
+  .nph-about-{{ section.id }} .nph-about-stat-number {
+    font-family: var(--font-heading-family);
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: rgb(var(--color-button));
+  }
+
+  .nph-about-{{ section.id }} .nph-about-stat-label {
+    font-size: 1.3rem;
+    color: rgba(var(--color-foreground), 0.65);
+  }
+
+  @media screen and (min-width: 750px) {
+    .nph-about-{{ section.id }} {
+      grid-template-columns: {% if section.settings.layout == 'image_first' %}1fr 1.1fr{% else %}1.1fr 1fr{% endif %};
+    }
+
+    .nph-about-{{ section.id }} .nph-about-media {
+      order: {% if section.settings.layout == 'image_first' %}1{% else %}2{% endif %};
+    }
+
+    .nph-about-{{ section.id }} .nph-about-content {
+      order: {% if section.settings.layout == 'image_first' %}2{% else %}1{% endif %};
+    }
+  }
+{%- endstyle -%}
+
+<div class="nph-about-{{ section.id }} color-{{ section.settings.color_scheme }}" id="about">
+  <div class="nph-about-media">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 1600
+        | image_tag:
+          loading: 'lazy',
+          widths: '375,550,750,1100,1500,1780,2000',
+          sizes: '(min-width: 750px) 45vw, 100vw',
+          alt: section.settings.image.alt
+      }}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+  <div class="nph-about-content">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="nph-about-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="nph-about-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="nph-about-text">{{ section.settings.text }}</div>
+    {%- endif -%}
+    {%- liquid
+      assign has_stats = false
+      for block in section.blocks
+        if block.type == 'stat'
+          assign has_stats = true
+        endif
+      endfor
+    -%}
+    {%- if has_stats -%}
+      <div class="nph-about-stats">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'stat' -%}
+            <div {{ block.shopify_attributes }}>
+              <div class="nph-about-stat-number">{{ block.settings.number }}</div>
+              <div class="nph-about-stat-label">{{ block.settings.label }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About (tradition)",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "image_first", "label": "Image left" },
+        { "value": "text_first", "label": "Image right" }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Our Tradition"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Generations of technique, one goal — balance."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Body text",
+      "default": "<p>Our therapists trained in classical Oriental massage methods, treating the body as a whole system. Every session draws on meridian-based pressure work, herbal liniments, and breathing to restore circulation and ease tension — not just relax muscles.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "15+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Years combined experience"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About (tradition)",
+      "blocks": [
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
+    }
+  ]
+}
+{% endschema %}

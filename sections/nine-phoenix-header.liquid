@@ -1,0 +1,251 @@
+{%- style -%}
+  .nph-header-{{ section.id }} {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: {{ section.settings.padding_top }}px 5% {{ section.settings.padding_bottom }}px;
+    background: rgba(var(--color-background), 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  }
+
+  .nph-header-{{ section.id }} .nph-logo {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgb(var(--color-foreground));
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nph-header-{{ section.id }} .nph-logo em {
+    font-style: normal;
+    color: rgba(var(--color-button), 1);
+  }
+
+  .nph-header-{{ section.id }} .nph-nav {
+    display: none;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .nph-header-{{ section.id }} .nph-nav a {
+    color: rgb(var(--color-foreground));
+    text-decoration: none;
+  }
+
+  .nph-header-{{ section.id }} .nph-nav a:hover {
+    opacity: 0.7;
+  }
+
+  .nph-header-{{ section.id }} .nph-call {
+    white-space: nowrap;
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-toggle {
+    display: block;
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-toggle summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-toggle summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-toggle[open] .nph-icon-open,
+  .nph-header-{{ section.id }} .nph-mobile-toggle .nph-icon-close {
+    display: none;
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-toggle[open] .nph-icon-close {
+    display: block;
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 5% 2rem;
+    background: rgb(var(--color-background));
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-panel a {
+    color: rgb(var(--color-foreground));
+    text-decoration: none;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .nph-header-{{ section.id }} .nph-mobile-panel .nph-call {
+    border-bottom: none;
+    margin-top: 0.5rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .nph-header-{{ section.id }} .nph-nav {
+      display: flex;
+    }
+
+    .nph-header-{{ section.id }} .nph-mobile-toggle {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+
+<div class="nph-header-{{ section.id }} color-{{ section.settings.color_scheme }}">
+  <a href="{{ routes.root_url }}" class="nph-logo">
+    {{ section.settings.business_name }} <em>{{ section.settings.business_name_accent }}</em>
+  </a>
+
+  <nav class="nph-nav" aria-label="Primary">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'nav_link' -%}
+        {%- liquid
+          assign nav_href = block.settings.link
+          if request.page_type == 'index' and nav_href contains '/#'
+            assign nav_href = nav_href | remove_first: '/'
+          endif
+        -%}
+        <a href="{{ nav_href }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if section.settings.phone != blank -%}
+      <a href="tel:{{ section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}" class="button nph-call">
+        Call {{ section.settings.phone }}
+      </a>
+    {%- endif -%}
+  </nav>
+
+  <details class="nph-mobile-toggle">
+    <summary aria-label="Menu">
+      <svg class="nph-icon-open" width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 1H22M0 8H22M0 15H22" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <svg class="nph-icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L17 17M17 1L1 17" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </summary>
+    <div class="nph-mobile-panel">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          {%- liquid
+            assign nav_href = block.settings.link
+            if request.page_type == 'index' and nav_href contains '/#'
+              assign nav_href = nav_href | remove_first: '/'
+            endif
+          -%}
+          <a href="{{ nav_href }}" onclick="this.closest('details').removeAttribute('open')" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if section.settings.phone != blank -%}
+        <a href="tel:{{ section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}" class="button nph-call">
+          Call {{ section.settings.phone }}
+        </a>
+      {%- endif -%}
+    </div>
+  </details>
+</div>
+
+{% schema %}
+{
+  "name": "Nine Phoenix nav",
+  "tag": "header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "business_name",
+      "label": "Business name",
+      "default": "Nine Phoenix"
+    },
+    {
+      "type": "text",
+      "id": "business_name_accent",
+      "label": "Business name (accent word)",
+      "default": "Massage"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone number",
+      "default": "(580) 716-8851"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 22
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Nav link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link (URL or #anchor)",
+          "default": "#"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "nav_link", "settings": { "label": "Services", "link": "/#services" } },
+      { "type": "nav_link", "settings": { "label": "Our Tradition", "link": "/#about" } },
+      { "type": "nav_link", "settings": { "label": "FAQ", "link": "/#faq" } },
+      { "type": "nav_link", "settings": { "label": "Visit", "link": "/#visit" } }
+    ]
+  }
+}
+{% endschema %}
