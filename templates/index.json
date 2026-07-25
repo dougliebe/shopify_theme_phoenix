@@ -1,229 +1,168 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Massage Therapy for a Calmer, Healthier You",
-            "heading_size": "hxl"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "A quiet space to breathe, unwind, and restore — one session at a time.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Book a Session",
-            "button_link_1": "#shopify-section-book",
-            "button_style_secondary_1": false,
-            "button_label_2": "View Services",
-            "button_link_2": "#shopify-section-services",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": ["heading", "text", "buttons"],
+      "type": "hero-split",
       "settings": {
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-2",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
-    "about": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "A Space to Slow Down",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Tucked away from the noise of everyday life, our studio is designed to help you relax the moment you walk in. Every session is tailored to your body's needs — whether you're easing chronic tension, recovering from an injury, or simply making time to care for yourself.</p><p>Our licensed therapists bring years of training in a range of modalities, so you always leave feeling lighter than when you arrived.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": ["heading", "text"],
-      "settings": {
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "eyebrow": "Traditional Oriental Massage · Stillwater, OK",
+        "heading": "Ancient techniques, honest healing.",
+        "heading_size": 60,
+        "text": "<p>Nine Phoenix Massage brings time-tested Oriental bodywork — acupressure, cupping, and deep tissue — to the heart of Stillwater. Same-day appointments welcome.</p>",
+        "button_label_1": "Call to Book — (580) 716-8851",
+        "button_link_1": "tel:5807168851",
+        "button_label_2": "View Services",
+        "button_link_2": "/#services",
+        "min_height": 560,
+        "color_scheme": "scheme-1"
       }
     },
     "services": {
-      "type": "multicolumn",
+      "type": "service-list",
       "blocks": {
-        "swedish": {
-          "type": "column",
+        "traditional": {
+          "type": "service",
           "settings": {
-            "title": "Swedish Massage",
-            "text": "<p>A gentle, flowing massage that eases tension and promotes deep relaxation. Available in 60 or 90 minute sessions.</p>"
+            "name": "Traditional Oriental Massage",
+            "description": "Full-body acupressure and meridian work to restore balance and circulation.",
+            "duration": "60 min",
+            "price": "$65"
           }
         },
         "deep-tissue": {
-          "type": "column",
+          "type": "service",
           "settings": {
-            "title": "Deep Tissue Massage",
-            "text": "<p>Firm, targeted pressure to release chronic tension held in muscles and connective tissue. Available in 60 or 90 minute sessions.</p>"
+            "name": "Deep Tissue",
+            "description": "Firm, targeted pressure to release chronic tension in muscles and joints.",
+            "duration": "60 min",
+            "price": "$75"
           }
         },
-        "hot-stone": {
-          "type": "column",
+        "cupping": {
+          "type": "service",
           "settings": {
-            "title": "Hot Stone Massage",
-            "text": "<p>Warm basalt stones paired with massage techniques to melt away stress and soothe sore muscles. 90 minute sessions.</p>"
-          }
-        },
-        "prenatal": {
-          "type": "column",
-          "settings": {
-            "title": "Prenatal Massage",
-            "text": "<p>A safe, nurturing massage designed to relieve the aches and swelling that come with pregnancy. 60 minute sessions.</p>"
-          }
-        },
-        "sports": {
-          "type": "column",
-          "settings": {
-            "title": "Sports Massage",
-            "text": "<p>Focused bodywork to help you recover, improve mobility, and prevent injury. Available in 60 or 90 minute sessions.</p>"
+            "name": "Cupping Therapy",
+            "description": "Traditional suction cupping to relieve stiffness and improve blood flow.",
+            "duration": "30 min add-on",
+            "price": "$25"
           }
         },
         "reflexology": {
-          "type": "column",
+          "type": "service",
           "settings": {
-            "title": "Reflexology",
-            "text": "<p>Pressure-point therapy on the feet and hands to promote relaxation throughout the whole body. Available in 30 or 60 minute sessions.</p>"
+            "name": "Foot Reflexology",
+            "description": "Pressure-point foot massage targeting reflex zones tied to the whole body.",
+            "duration": "45 min",
+            "price": "$45"
+          }
+        },
+        "hot-stone": {
+          "type": "service",
+          "settings": {
+            "name": "Hot Stone Massage",
+            "description": "Heated stones combined with classical technique to melt away deep tension.",
+            "duration": "75 min",
+            "price": "$90"
+          }
+        },
+        "couples": {
+          "type": "service",
+          "settings": {
+            "name": "Couples Massage",
+            "description": "Two therapists, side-by-side rooms, for a shared relaxation session.",
+            "duration": "60 min",
+            "price": "$140"
           }
         }
       },
-      "block_order": ["swedish", "deep-tissue", "hot-stone", "prenatal", "sports", "reflexology"],
+      "block_order": ["traditional", "deep-tissue", "cupping", "reflexology", "hot-stone", "couples"],
       "settings": {
-        "title": "Our Services",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 72,
-        "padding_bottom": 72
+        "eyebrow": "Services",
+        "heading": "Bodywork rooted in tradition",
+        "color_scheme": "scheme-2",
+        "card_color_scheme": "scheme-1",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
-    "book": {
-      "type": "image-with-text",
+    "about": {
+      "type": "about-tradition",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "years": {
+          "type": "stat",
           "settings": {
-            "heading": "How to Book",
-            "heading_size": "h1"
+            "number": "15+",
+            "label": "Years combined experience"
           }
         },
-        "text": {
-          "type": "text",
+        "same-day": {
+          "type": "stat",
           "settings": {
-            "text": "<p>Booking is simple. Reach out by phone, email, or the contact form below and we'll help you find the right service and time for your first visit.</p><p>New clients are invited to arrive a few minutes early for a short intake conversation, so your session can be tailored to you from the very first moment.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Book Now",
-            "button_link": "/pages/contact",
-            "button_style_secondary": false
+            "number": "Same-day",
+            "label": "Appointments available"
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": ["years", "same-day"],
       "settings": {
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-5",
-        "color_scheme": "scheme-5",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
-    "location": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Find Us",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>123 Main Street, Suite 2<br>Your City, ST 00000</p><p>Free parking is available directly behind the building. We're just a few minutes from downtown — look for the discreet sign by the door.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Get Directions",
-            "button_link": "https://maps.google.com/?q=123+Main+Street+Your+City+ST+00000",
-            "button_style_secondary": true
-          }
-        }
-      },
-      "block_order": ["heading", "text", "button"],
-      "settings": {
-        "height": "medium",
-        "desktop_image_width": "medium",
         "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
+        "eyebrow": "Our Tradition",
+        "heading": "Generations of technique, one goal — balance.",
+        "text": "<p>Our therapists trained in classical Oriental massage methods, treating the body as a whole system. Every session draws on meridian-based pressure work, herbal liniments, and breathing to restore circulation and ease tension — not just relax muscles.</p>",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need an appointment?",
+            "icon": "none",
+            "row_content": "<p>Walk-ins are welcome, but calling ahead guarantees your preferred time. Same-day appointments are usually available.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I wear?",
+            "icon": "none",
+            "row_content": "<p>Loose, comfortable clothing. For deep tissue or cupping sessions, we'll provide draping as needed.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How is Oriental massage different from a typical spa massage?",
+            "icon": "none",
+            "row_content": "<p>We work along the body's meridians and pressure points, combining acupressure, cupping, and stretching to address root tension, not just surface relaxation.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you accept cash and card?",
+            "icon": "none",
+            "row_content": "<p>Yes, we accept both cash and major credit cards.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "anchor": "faq",
+        "caption": "FAQ",
+        "heading": "Good to know",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-2",
         "color_scheme": "scheme-1",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
-  "order": ["hero", "about", "services", "book", "location"]
+  "order": ["hero", "services", "about", "faq"]
 }
