@@ -139,6 +139,7 @@
         "same-day"
       ],
       "settings": {
+        "image": "shopify://shop_images/Nine_Phoenix_Logos-selection.png",
         "layout": "image_first",
         "eyebrow": "Our Tradition",
         "heading": "Where pressure meets purpose.",
