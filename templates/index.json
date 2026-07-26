@@ -47,7 +47,7 @@
             "name": "Traditional Oriental Massage",
             "description": "Full-body acupressure and meridian work to restore balance and circulation.",
             "duration": "60 min",
-            "price": "$65"
+            "price": "$85"
           }
         },
         "deep-tissue": {
@@ -56,7 +56,7 @@
             "name": "Deep Tissue",
             "description": "Firm, targeted pressure to release chronic tension in muscles and joints.",
             "duration": "60 min",
-            "price": "$75"
+            "price": "$95"
           }
         },
         "cupping": {
