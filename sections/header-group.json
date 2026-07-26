@@ -16,22 +16,40 @@
       "blocks": {
         "services": {
           "type": "nav_link",
-          "settings": { "label": "Services", "link": "/#services" }
+          "settings": {
+            "label": "Services",
+            "link": "/#services"
+          }
         },
         "about": {
           "type": "nav_link",
-          "settings": { "label": "Our Tradition", "link": "/#about" }
+          "disabled": true,
+          "settings": {
+            "label": "Our Tradition",
+            "link": "/#about"
+          }
         },
         "faq": {
           "type": "nav_link",
-          "settings": { "label": "FAQ", "link": "/#faq" }
+          "settings": {
+            "label": "FAQ",
+            "link": "/#faq"
+          }
         },
         "visit": {
           "type": "nav_link",
-          "settings": { "label": "Visit", "link": "/#visit" }
+          "settings": {
+            "label": "Visit",
+            "link": "/#visit"
+          }
         }
       },
-      "block_order": ["services", "about", "faq", "visit"],
+      "block_order": [
+        "services",
+        "about",
+        "faq",
+        "visit"
+      ],
       "settings": {
         "business_name": "Nine Phoenix",
         "business_name_accent": "Massage",
@@ -42,5 +60,7 @@
       }
     }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }
