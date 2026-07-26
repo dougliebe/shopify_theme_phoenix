@@ -9,21 +9,21 @@
           "type": "column",
           "settings": {
             "heading": "Visit Us",
-            "content": "<p>130 S Main St<br>Stillwater, OK 74074</p>"
+            "content": "<p><a href=\"https://www.google.com/maps/search/?api=1&query=130+S+Main+St%2C+Stillwater%2C+OK+74074\" target=\"_blank\" rel=\"noopener noreferrer\">130 S Main St<br>Stillwater, OK 74074</a></p>"
           }
         },
         "hours": {
           "type": "column",
           "settings": {
             "heading": "Hours",
-            "content": "<p>Mon – Sat: 9:30am – 8:00pm<br>Sunday: 10:00am – 6:00pm</p>"
+            "content": "<p>Monday: 10:30am – 7:30pm<br>Tuesday: 11am – 7:30pm<br>Wednesday: 10:30am – 7:30pm<br>Thursday: 11am – 7:30pm<br>Friday: 10:30am – 7:30pm<br>Saturday: 11am – 7pm<br>Sunday: Closed</p>"
           }
         },
         "contact": {
           "type": "column",
           "settings": {
             "heading": "Contact",
-            "content": "<p><a href=\"tel:5807168851\">(580) 716-8851</a></p><p>Walk-ins welcome — same-day appointments encouraged.</p>"
+            "content": "<p><a href=\"tel:5807168851\">(580) 716-8851</a></p><p>Please call ahead — same-day appointments encouraged.</p>"
           }
         }
       },

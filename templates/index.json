@@ -170,7 +170,7 @@
           "settings": {
             "heading": "Do I need an appointment?",
             "icon": "none",
-            "row_content": "<p>Walk-ins are welcome, but calling ahead guarantees your preferred time. Same-day appointments are usually available.</p>"
+            "row_content": "<p>No walk-ins. Please call ahead — same-day appointments are encouraged.</p>"
           }
         },
         "q2": {
