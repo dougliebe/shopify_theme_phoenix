@@ -23,7 +23,6 @@
         },
         "about": {
           "type": "nav_link",
-          "disabled": true,
           "settings": {
             "label": "Our Tradition",
             "link": "/#about"
