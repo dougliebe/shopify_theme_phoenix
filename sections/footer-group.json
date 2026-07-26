@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -27,7 +36,11 @@
           }
         }
       },
-      "block_order": ["visit", "hours", "contact"],
+      "block_order": [
+        "visit",
+        "hours",
+        "contact"
+      ],
       "settings": {
         "color_scheme": "scheme-5",
         "padding_top": 100,
@@ -36,8 +49,6 @@
     },
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "color_scheme": "scheme-5",
         "newsletter_enable": false,
@@ -54,5 +65,8 @@
       }
     }
   },
-  "order": ["visit", "footer"]
+  "order": [
+    "visit",
+    "footer"
+  ]
 }

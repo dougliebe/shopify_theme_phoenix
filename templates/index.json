@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-split",
       "settings": {
+        "image": "shopify://shop_images/hands-massage.jpg",
         "eyebrow": "Traditional Oriental Massage · Stillwater, OK",
         "heading": "Ancient techniques, honest healing.",
         "heading_size": 60,
@@ -18,6 +28,7 @@
     "award": {
       "type": "award-badge",
       "settings": {
+        "image": "shopify://shop_images/bestofstillwater.jpg",
         "eyebrow": "Community Recognition",
         "heading": "2025 Best of Stillwater Finalist",
         "text": "<p>Nine Phoenix Massage is proud to be named a finalist in the Stillwater News Press 2025 Best of Stillwater awards.</p>",
@@ -51,14 +62,15 @@
         "cupping": {
           "type": "service",
           "settings": {
-            "name": "Cupping Therapy",
-            "description": "Traditional suction cupping to relieve stiffness and improve blood flow.",
-            "duration": "30 min add-on",
-            "price": "$25"
+            "name": "Ashiatsu",
+            "description": "A unique technique using the foot to apply deep pressure to your body.",
+            "duration": "60 min",
+            "price": "$100"
           }
         },
         "reflexology": {
           "type": "service",
+          "disabled": true,
           "settings": {
             "name": "Foot Reflexology",
             "description": "Pressure-point foot massage targeting reflex zones tied to the whole body.",
@@ -68,6 +80,7 @@
         },
         "hot-stone": {
           "type": "service",
+          "disabled": true,
           "settings": {
             "name": "Hot Stone Massage",
             "description": "Heated stones combined with classical technique to melt away deep tension.",
@@ -77,6 +90,7 @@
         },
         "couples": {
           "type": "service",
+          "disabled": true,
           "settings": {
             "name": "Couples Massage",
             "description": "Two therapists, side-by-side rooms, for a shared relaxation session.",
@@ -85,14 +99,21 @@
           }
         }
       },
-      "block_order": ["traditional", "deep-tissue", "cupping", "reflexology", "hot-stone", "couples"],
+      "block_order": [
+        "traditional",
+        "deep-tissue",
+        "cupping",
+        "reflexology",
+        "hot-stone",
+        "couples"
+      ],
       "settings": {
         "eyebrow": "Services",
         "heading": "Bodywork rooted in tradition",
         "color_scheme": "scheme-2",
         "card_color_scheme": "scheme-1",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 40,
+        "padding_bottom": 60
       }
     },
     "about": {
@@ -113,7 +134,10 @@
           }
         }
       },
-      "block_order": ["years", "same-day"],
+      "block_order": [
+        "years",
+        "same-day"
+      ],
       "settings": {
         "layout": "image_first",
         "eyebrow": "Our Tradition",
@@ -153,13 +177,17 @@
           }
         }
       },
-      "block_order": ["doug", "halley", "meekai"],
+      "block_order": [
+        "doug",
+        "halley",
+        "meekai"
+      ],
       "settings": {
         "eyebrow": "Reviews",
         "heading": "What clients are saying",
         "color_scheme": "scheme-2",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 40,
+        "padding_bottom": 60
       }
     },
     "faq": {
@@ -170,7 +198,8 @@
           "settings": {
             "heading": "Do I need an appointment?",
             "icon": "none",
-            "row_content": "<p>No walk-ins. Please call ahead — same-day appointments are encouraged.</p>"
+            "row_content": "<p>No walk-ins. Please call ahead — same-day appointments are encouraged.</p>",
+            "page": ""
           }
         },
         "q2": {
@@ -178,7 +207,8 @@
           "settings": {
             "heading": "What should I wear?",
             "icon": "none",
-            "row_content": "<p>Loose, comfortable clothing. For deep tissue or cupping sessions, we'll provide draping as needed.</p>"
+            "row_content": "<p>Loose, comfortable clothing. For deep tissue or cupping sessions, we'll provide draping as needed.</p>",
+            "page": ""
           }
         },
         "q3": {
@@ -186,7 +216,8 @@
           "settings": {
             "heading": "How is Oriental massage different from a typical spa massage?",
             "icon": "none",
-            "row_content": "<p>We work along the body's meridians and pressure points, combining acupressure, cupping, and stretching to address root tension, not just surface relaxation.</p>"
+            "row_content": "<p>We work along the body's meridians and pressure points, combining acupressure, cupping, and stretching to address root tension, not just surface relaxation.</p>",
+            "page": ""
           }
         },
         "q4": {
@@ -194,11 +225,17 @@
           "settings": {
             "heading": "Do you accept cash and card?",
             "icon": "none",
-            "row_content": "<p>Yes, we accept both cash and major credit cards.</p>"
+            "row_content": "<p>Yes, we accept both cash and major credit cards.</p>",
+            "page": ""
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
       "settings": {
         "anchor": "faq",
         "caption": "FAQ",
@@ -211,10 +248,17 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 40,
+        "padding_bottom": 60
       }
     }
   },
-  "order": ["hero", "award", "services", "about", "reviews", "faq"]
+  "order": [
+    "hero",
+    "award",
+    "services",
+    "about",
+    "reviews",
+    "faq"
+  ]
 }
