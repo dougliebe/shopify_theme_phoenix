@@ -122,8 +122,8 @@
         "years": {
           "type": "stat",
           "settings": {
-            "number": "15+",
-            "label": "Years combined experience"
+            "number": "6+",
+            "label": "Years serving Stillwater"
           }
         },
         "same-day": {
@@ -138,12 +138,11 @@
         "years",
         "same-day"
       ],
-      "disabled": true,
       "settings": {
         "layout": "image_first",
         "eyebrow": "Our Tradition",
         "heading": "Generations of technique, one goal — balance.",
-        "text": "<p>Our therapists trained in classical Oriental massage methods, treating the body as a whole system. Every session draws on meridian-based pressure work, herbal liniments, and breathing to restore circulation and ease tension — not just relax muscles.</p>",
+        "text": "<p>Nine Phoenix Massage is a family-owned business, starting in Stillwater in 2020. Since then, we have become a staple of the community. It is our honor to bring only professional and high-quality massage services to central Oklahoma.</p>",
         "color_scheme": "scheme-1"
       }
     },
