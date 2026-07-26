@@ -26,17 +26,6 @@
     padding: 7rem 8%;
   }
 
-  .nph-about-{{ section.id }}.nph-about-solo .nph-about-content {
-    max-width: 72rem;
-    margin: 0 auto;
-    text-align: center;
-    align-items: center;
-  }
-
-  .nph-about-{{ section.id }}.nph-about-solo .nph-about-stats {
-    justify-content: center;
-  }
-
   .nph-about-{{ section.id }} .nph-about-eyebrow {
     font-size: 1.3rem;
     letter-spacing: 0.18em;
@@ -79,25 +68,23 @@
   }
 
   @media screen and (min-width: 750px) {
-    {%- if section.settings.image != blank -%}
-      .nph-about-{{ section.id }} {
-        grid-template-columns: {% if section.settings.layout == 'image_first' %}1fr 1.1fr{% else %}1.1fr 1fr{% endif %};
-      }
+    .nph-about-{{ section.id }} {
+      grid-template-columns: {% if section.settings.layout == 'image_first' %}1fr 1.1fr{% else %}1.1fr 1fr{% endif %};
+    }
 
-      .nph-about-{{ section.id }} .nph-about-media {
-        order: {% if section.settings.layout == 'image_first' %}1{% else %}2{% endif %};
-      }
+    .nph-about-{{ section.id }} .nph-about-media {
+      order: {% if section.settings.layout == 'image_first' %}1{% else %}2{% endif %};
+    }
 
-      .nph-about-{{ section.id }} .nph-about-content {
-        order: {% if section.settings.layout == 'image_first' %}2{% else %}1{% endif %};
-      }
-    {%- endif -%}
+    .nph-about-{{ section.id }} .nph-about-content {
+      order: {% if section.settings.layout == 'image_first' %}2{% else %}1{% endif %};
+    }
   }
 {%- endstyle -%}
 
-<div class="nph-about-{{ section.id }} color-{{ section.settings.color_scheme }}{% if section.settings.image == blank %} nph-about-solo{% endif %}" id="about">
-  {%- if section.settings.image != blank -%}
-    <div class="nph-about-media">
+<div class="nph-about-{{ section.id }} color-{{ section.settings.color_scheme }}" id="about">
+  <div class="nph-about-media">
+    {%- if section.settings.image != blank -%}
       {{
         section.settings.image
         | image_url: width: 1600
@@ -107,8 +94,10 @@
           sizes: '(min-width: 750px) 45vw, 100vw',
           alt: section.settings.image.alt
       }}
-    </div>
-  {%- endif -%}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
   <div class="nph-about-content">
     {%- if section.settings.eyebrow != blank -%}
       <p class="nph-about-eyebrow">{{ section.settings.eyebrow }}</p>
