@@ -187,6 +187,7 @@
         "eyebrow": "Reviews",
         "heading": "What clients are saying",
         "color_scheme": "scheme-2",
+        "card_color_scheme": "scheme-1",
         "padding_top": 40,
         "padding_bottom": 60
       }
@@ -206,27 +207,90 @@
         "q2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What should I wear?",
+            "heading": "Do you accept cash and card?",
             "icon": "none",
-            "row_content": "<p>Loose, comfortable clothing. For deep tissue or cupping sessions, we'll provide draping as needed.</p>",
+            "row_content": "<p>Yes, we accept both cash and major credit cards.</p>",
             "page": ""
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How is Oriental massage different from a typical spa massage?",
+            "heading": "How early should I arrive for my appointment?",
             "icon": "none",
-            "row_content": "<p>We work along the body's meridians and pressure points, combining acupressure, cupping, and stretching to address root tension, not just surface relaxation.</p>",
+            "row_content": "<p>Please arrive 5 or 10 minutes early to ensure that we can discuss goals for the session and so that you can relax before your massage.</p>",
             "page": ""
           }
         },
         "q4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Do you accept cash and card?",
+            "heading": "What if I need to cancel my appointment?",
             "icon": "none",
-            "row_content": "<p>Yes, we accept both cash and major credit cards.</p>",
+            "row_content": "<p>I understand that things come up. Please provide at least 24 hours notice for any cancellations.</p>",
+            "page": ""
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I have to undress for a massage?",
+            "icon": "none",
+            "row_content": "<p>Some clients undress completely and others prefer to leave some clothing on. Your comfort is a priority. You will be covered with a sheet the entire massage and only the area that is being worked on is uncovered.</p>",
+            "page": ""
+          }
+        },
+        "q6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will you talk/may I talk during my massage?",
+            "icon": "none",
+            "row_content": "<p>It’s up to you! Some people like to chat while others prefer silence. As a therapist, I follow cues from my clients so that they have whatever experience they prefer. It is your massage, after all!</p>",
+            "page": ""
+          }
+        },
+        "q7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you take insurance?",
+            "icon": "none",
+            "row_content": "<p>Not at this time.</p>",
+            "page": ""
+          }
+        },
+        "q8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will my massage hurt?",
+            "icon": "none",
+            "row_content": "<p>Some massage techniques may cause a little discomfort as tension or sore muscles are worked, but it should never be painful. Please let me know if you are experiencing any pain so that adjustments can be made.</p>",
+            "page": ""
+          }
+        },
+        "q9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often should I get a massage?",
+            "icon": "none",
+            "row_content": "<p>This depends on your needs and lifestyle. In general, I tell my clients that they know their own body better than anyone else. There is no official schedule for when someone should get a massage. Some clients receive a massage once per week, others schedule a massage only when they feel that their body needs it.</p>",
+            "page": ""
+          }
+        },
+        "q10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Am I required to tip?",
+            "icon": "none",
+            "row_content": "<p>Tipping is never required, but if you are happy with your service, a tip is always welcome and appreciated.</p>",
+            "page": ""
+          }
+        },
+        "q11": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I do after my massage?",
+            "icon": "none",
+            "row_content": "<p>It is important to stay hydrated, rest, and listen to your body. Some soreness is not uncommon, especially after a deep tissue massage. Light stretching and heat application can help.</p>",
             "page": ""
           }
         }
@@ -235,7 +299,14 @@
         "q1",
         "q2",
         "q3",
-        "q4"
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11"
       ],
       "settings": {
         "anchor": "faq",
