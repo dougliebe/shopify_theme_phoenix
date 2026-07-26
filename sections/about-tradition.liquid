@@ -6,16 +6,19 @@
   }
 
   .nph-about-{{ section.id }} .nph-about-media {
-    position: relative;
-    min-height: 32rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
   }
 
   .nph-about-{{ section.id }} .nph-about-media img,
   .nph-about-{{ section.id }} .nph-about-media .placeholder-svg {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 26rem;
+    height: auto;
+    object-fit: contain;
   }
 
   .nph-about-{{ section.id }} .nph-about-content {
