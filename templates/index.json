@@ -153,8 +153,10 @@
         "doug": {
           "type": "review",
           "settings": {
+            "avatar": "shopify://shop_images/unnamed.png",
             "quote": "Best massage in Stillwater. Timely, professional, and high-quality massage. Thank you!!",
             "name": "Doug",
+            "time_ago": "1mo ago",
             "rating": 5,
             "link": "https://maps.app.goo.gl/4KXevEzV5g12XBpt5"
           }
@@ -162,8 +164,10 @@
         "halley": {
           "type": "review",
           "settings": {
+            "avatar": "shopify://shop_images/unnamed_781bb447-a960-43f6-be9b-0a59248071a1.png",
             "quote": "best massage in stillwater. you can get in almost instantly. she's super flexible with times and so so good!! 11/10 recommended",
             "name": "Halley",
+            "time_ago": "3mo ago",
             "rating": 5,
             "link": "https://share.google/cyheXtTBH9CwnssMo"
           }
@@ -171,8 +175,10 @@
         "meekai": {
           "type": "review",
           "settings": {
+            "avatar": "shopify://shop_images/unnamed_94bf137a-552c-4872-a57f-a90bc384212f.png",
             "quote": "She's the best. Very knowledgeable and helpful, accommodating, and fast responding. Space is cozy and clean. I've done the Swedish and Deep Tissue. I leave with knowledge on how to continue addressing any problem areas I may have and feeling better. Highly recommend.",
             "name": "Mee-Kai",
+            "time_ago": "6mo ago",
             "rating": 5,
             "link": "https://share.google/hpY2OY9WtRd4Qivke"
           }
@@ -206,6 +212,7 @@
         },
         "q2": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Do you accept cash and card?",
             "icon": "none",
@@ -215,6 +222,7 @@
         },
         "q3": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "How early should I arrive for my appointment?",
             "icon": "none",
@@ -224,6 +232,7 @@
         },
         "q4": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "What if I need to cancel my appointment?",
             "icon": "none",
@@ -233,6 +242,7 @@
         },
         "q5": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Do I have to undress for a massage?",
             "icon": "none",
@@ -242,6 +252,7 @@
         },
         "q6": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Will you talk/may I talk during my massage?",
             "icon": "none",
@@ -260,6 +271,7 @@
         },
         "q8": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Will my massage hurt?",
             "icon": "none",
