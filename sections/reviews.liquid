@@ -1,5 +1,6 @@
 {%- style -%}
   .nph-reviews-{{ section.id }} {
+    --nph-gold: #EDBC4A;
     padding: {{ section.settings.padding_top }}px 5% {{ section.settings.padding_bottom }}px;
   }
 
@@ -28,11 +29,9 @@
   .nph-reviews-{{ section.id }} .nph-reviews-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.1rem;
-    background: rgba(var(--color-foreground), 0.12);
+    gap: 2.4rem;
     max-width: 110rem;
     margin: 0 auto;
-    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
   }
 
   @media screen and (min-width: 750px) {
@@ -42,16 +41,30 @@
   }
 
   .nph-reviews-{{ section.id }} .nph-review-card {
-    padding: 3.4rem 2.8rem;
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
+    gap: 1.6rem;
+    padding: 2.8rem;
+    border-radius: 1.6rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 0.2rem 0.6rem rgba(var(--color-shadow), 0.08), 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.1);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  a.nph-review-card {
+    cursor: pointer;
+  }
+
+  a.nph-review-card:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.4rem 0.8rem rgba(var(--color-shadow), 0.1), 0 1.2rem 3.2rem rgba(var(--color-shadow), 0.14);
   }
 
   .nph-reviews-{{ section.id }} .nph-review-stars {
-    color: rgb(var(--color-button));
-    font-size: 1.6rem;
-    letter-spacing: 0.2rem;
+    color: var(--nph-gold);
+    font-size: 1.9rem;
+    letter-spacing: 0.3rem;
   }
 
   .nph-reviews-{{ section.id }} .nph-review-quote {
@@ -61,29 +74,58 @@
     flex: 1;
   }
 
-  .nph-reviews-{{ section.id }} .nph-review-meta {
+  .nph-reviews-{{ section.id }} .nph-review-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-top: 0.6rem;
-    padding-top: 1.4rem;
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 1.6rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
   }
 
-  .nph-reviews-{{ section.id }} .nph-review-name {
+  .nph-reviews-{{ section.id }} .nph-review-avatar {
+    flex-shrink: 0;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
     font-family: var(--font-heading-family);
     font-size: 1.8rem;
     font-weight: 600;
   }
 
-  .nph-reviews-{{ section.id }} .nph-review-link {
-    font-size: 1.3rem;
-    color: rgba(var(--color-foreground), 0.55);
-    text-decoration: none;
+  .nph-reviews-{{ section.id }} .nph-review-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .nph-reviews-{{ section.id }} .nph-review-link:hover {
-    color: rgb(var(--color-button));
+  .nph-reviews-{{ section.id }} .nph-review-person {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-name {
+    font-family: var(--font-heading-family);
+    font-size: 1.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-time {
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 0.5);
+  }
+
+  .nph-reviews-{{ section.id }} .nph-review-google-icon {
+    flex-shrink: 0;
+    display: flex;
   }
 {%- endstyle -%}
 
@@ -99,27 +141,49 @@
   <div class="nph-reviews-grid">
     {%- for block in section.blocks -%}
       {%- if block.type == 'review' -%}
-        <div class="nph-review-card" {{ block.shopify_attributes }}>
+        {%- liquid
+          assign card_tag = 'div'
+          if block.settings.link != blank
+            assign card_tag = 'a'
+          endif
+        -%}
+        <{{ card_tag }}
+          class="nph-review-card color-{{ section.settings.card_color_scheme }}"
+          {% if block.settings.link != blank %}
+            href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer"
+          {% endif %}
+          {{ block.shopify_attributes }}
+        >
           <div class="nph-review-stars" aria-label="{{ block.settings.rating }} out of 5 stars">
             {%- for i in (1..5) -%}
               {%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}
             {%- endfor -%}
           </div>
-          <div class="nph-review-quote">&ldquo;{{ block.settings.quote }}&rdquo;</div>
-          <div class="nph-review-meta">
-            <span class="nph-review-name">{{ block.settings.name }}</span>
-            {%- if block.settings.link != blank -%}
-              <a
-                href="{{ block.settings.link }}"
-                class="nph-review-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Read on Google ↗
-              </a>
-            {%- endif -%}
+          <div class="nph-review-quote">{{ block.settings.quote }}</div>
+          <div class="nph-review-footer">
+            <div class="nph-review-avatar">
+              {%- if block.settings.avatar != blank -%}
+                {{ block.settings.avatar | image_url: width: 100 | image_tag: loading: 'lazy', alt: block.settings.name }}
+              {%- else -%}
+                {{ block.settings.name | slice: 0, 1 | upcase }}
+              {%- endif -%}
+            </div>
+            <div class="nph-review-person">
+              <div class="nph-review-name">{{ block.settings.name }}</div>
+              {%- if block.settings.time_ago != blank -%}
+                <div class="nph-review-time">{{ block.settings.time_ago }}</div>
+              {%- endif -%}
+            </div>
+            <div class="nph-review-google-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+              </svg>
+            </div>
           </div>
-        </div>
+        </{{ card_tag }}>
       {%- endif -%}
     {%- endfor -%}
   </div>
@@ -144,8 +208,14 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color scheme",
+      "label": "Section color scheme",
       "default": "scheme-2"
+    },
+    {
+      "type": "color_scheme",
+      "id": "card_color_scheme",
+      "label": "Card color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "range",
@@ -174,6 +244,12 @@
       "name": "Review",
       "settings": [
         {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Reviewer photo (optional)",
+          "info": "Falls back to an initial-letter avatar if left blank"
+        },
+        {
           "type": "textarea",
           "id": "quote",
           "label": "Review text",
@@ -184,6 +260,12 @@
           "id": "name",
           "label": "Reviewer name",
           "default": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "time_ago",
+          "label": "Time ago (optional)",
+          "info": "e.g. \"4 months ago\" — leave blank to hide"
         },
         {
           "type": "range",

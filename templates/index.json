@@ -187,6 +187,7 @@
         "eyebrow": "Reviews",
         "heading": "What clients are saying",
         "color_scheme": "scheme-2",
+        "card_color_scheme": "scheme-1",
         "padding_top": 40,
         "padding_bottom": 60
       }
