@@ -15,17 +15,31 @@
   }
 
   .nph-header-{{ section.id }} .nph-logo {
-    font-family: 'Mr Dafoe', cursive;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 3.4rem;
-    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
     color: rgb(var(--color-foreground));
     text-decoration: none;
     white-space: nowrap;
   }
 
-  .nph-header-{{ section.id }} .nph-logo em {
+  .nph-header-{{ section.id }} .nph-logo-mark {
+    display: block;
+    height: auto;
+    max-height: 5rem;
+    width: auto;
+    max-width: 8rem;
+  }
+
+  .nph-header-{{ section.id }} .nph-logo-text {
+    font-family: 'Mr Dafoe', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .nph-header-{{ section.id }} .nph-logo-text em {
     font-style: normal;
     color: rgba(var(--color-button), 1);
   }
@@ -46,7 +60,9 @@
     opacity: 0.7;
   }
 
-  .nph-header-{{ section.id }} .nph-call {
+  .nph-header-{{ section.id }} .nph-nav .nph-call,
+  .nph-header-{{ section.id }} .nph-mobile-panel .nph-call {
+    color: rgb(var(--color-button-text));
     white-space: nowrap;
   }
 
@@ -117,7 +133,24 @@
 
 <div class="nph-header-{{ section.id }} color-{{ section.settings.color_scheme }}">
   <a href="{{ routes.root_url }}" class="nph-logo">
-    {{ section.settings.business_name }} <em>{{ section.settings.business_name_accent }}</em>
+    {%- if settings.logo != blank -%}
+      {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+      {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+      {{
+        settings.logo
+        | image_url: width: 600
+        | image_tag:
+          class: 'nph-logo-mark',
+          widths: '60,90,120,160,200,240',
+          height: logo_height,
+          width: settings.logo_width,
+          alt: logo_alt,
+          loading: 'lazy'
+      }}
+    {%- endif -%}
+    <span class="nph-logo-text">
+      {{ section.settings.business_name }} <em>{{ section.settings.business_name_accent }}</em>
+    </span>
   </a>
 
   <nav class="nph-nav" aria-label="Primary">
