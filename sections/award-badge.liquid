@@ -18,6 +18,7 @@
     width: 15rem;
     height: 15rem;
     flex-shrink: 0;
+    display: block;
   }
 
   .nph-award-{{ section.id }} .nph-award-media img {
@@ -25,6 +26,11 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: opacity 0.15s ease;
+  }
+
+  a.nph-award-media:hover img {
+    opacity: 0.8;
   }
 
   .nph-award-{{ section.id }} .nph-award-placeholder {
@@ -75,17 +81,37 @@
 
 <div class="nph-award-{{ section.id }} color-{{ section.settings.color_scheme }}">
   <div class="nph-award-inner">
-    <div class="nph-award-media">
-      {%- if section.settings.image != blank -%}
-        {{
-          section.settings.image
-          | image_url: width: 400
-          | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.image.alt
-        }}
-      {%- else -%}
-        <div class="nph-award-placeholder">Upload award badge image</div>
-      {%- endif -%}
-    </div>
+    {%- if section.settings.link != blank -%}
+      <a
+        href="{{ section.settings.link }}"
+        class="nph-award-media"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="{{ section.settings.heading | default: 'View award details' }}"
+      >
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 400
+            | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.image.alt
+          }}
+        {%- else -%}
+          <div class="nph-award-placeholder">Upload award badge image</div>
+        {%- endif -%}
+      </a>
+    {%- else -%}
+      <div class="nph-award-media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 400
+            | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.image.alt
+          }}
+        {%- else -%}
+          <div class="nph-award-placeholder">Upload award badge image</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
     <div>
       {%- if section.settings.eyebrow != blank -%}
         <p class="nph-award-eyebrow">{{ section.settings.eyebrow }}</p>
@@ -95,18 +121,6 @@
       {%- endif -%}
       {%- if section.settings.text != blank -%}
         <div class="nph-award-text">{{ section.settings.text }}</div>
-      {%- endif -%}
-      {%- if section.settings.button_label != blank -%}
-        <div style="margin-top: 2rem;">
-          <a
-            href="{{ section.settings.button_link }}"
-            class="button button--secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ section.settings.button_label }}
-          </a>
-        </div>
       {%- endif -%}
     </div>
   </div>
@@ -140,15 +154,9 @@
       "default": "<p>Nine Phoenix Massage is proud to be named a finalist in the Stillwater News Press 2025 Best of Stillwater awards.</p>"
     },
     {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "View the Gallery"
-    },
-    {
       "type": "url",
-      "id": "button_link",
-      "label": "Button link"
+      "id": "link",
+      "label": "Badge link (opens the gallery/article)"
     },
     {
       "type": "color_scheme",
