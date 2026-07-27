@@ -47,7 +47,7 @@
             "name": "Traditional Oriental Massage",
             "description": "Full-body acupressure and meridian work to restore balance and circulation.",
             "duration": "60 min",
-            "price": "$XX"
+            "price": ""
           }
         },
         "deep-tissue": {
@@ -56,7 +56,7 @@
             "name": "Deep Tissue",
             "description": "Firm, targeted pressure to release chronic tension in muscles and joints.",
             "duration": "60 min",
-            "price": "$XX"
+            "price": ""
           }
         },
         "cupping": {
@@ -65,7 +65,7 @@
             "name": "Ashiatsu",
             "description": "A unique technique using the foot to apply deep pressure to your body.",
             "duration": "60 min",
-            "price": "$XX"
+            "price": ""
           }
         },
         "reflexology": {
@@ -201,22 +201,21 @@
     "faq": {
       "type": "collapsible-content",
       "blocks": {
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are your prices?",
+            "icon": "none",
+            "row_content": "<p>Because we use imported oils, prices can fluctuate week-to-week. Please ask about price when calling/texting to setup an appointment!</p>",
+            "page": ""
+          }
+        },
         "q1": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Do I need an appointment?",
             "icon": "none",
             "row_content": "<p>No walk-ins. Please call ahead — same-day appointments are encouraged.</p>",
-            "page": ""
-          }
-        },
-        "q2": {
-          "type": "collapsible_row",
-          "disabled": true,
-          "settings": {
-            "heading": "Do you accept cash and card?",
-            "icon": "none",
-            "row_content": "<p>Yes, we accept both cash and major credit cards.</p>",
             "page": ""
           }
         },
@@ -308,8 +307,8 @@
         }
       },
       "block_order": [
-        "q1",
         "q2",
+        "q1",
         "q3",
         "q4",
         "q5",
