@@ -32,7 +32,7 @@
           "type": "column",
           "settings": {
             "heading": "Contact",
-            "content": "<p><a href=\"tel:5807168851\">(580) 716-8851</a></p><p>Please call ahead — same-day appointments encouraged.</p>"
+            "content": "<p><a href=\"tel:5807168851\">(580) 716-8851</a></p><p>Please call/text ahead — same-day appointments encouraged.</p>"
           }
         }
       },
