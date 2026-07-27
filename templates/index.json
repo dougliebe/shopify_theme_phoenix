@@ -41,20 +41,20 @@
     "services": {
       "type": "service-list",
       "blocks": {
-        "traditional": {
-          "type": "service",
-          "settings": {
-            "name": "Traditional Oriental Massage",
-            "description": "Full-body acupressure and meridian work to restore balance and circulation.",
-            "duration": "60 min",
-            "price": ""
-          }
-        },
         "deep-tissue": {
           "type": "service",
           "settings": {
             "name": "Deep Tissue",
             "description": "Firm, targeted pressure to release chronic tension in muscles and joints.",
+            "duration": "60 min",
+            "price": ""
+          }
+        },
+        "traditional": {
+          "type": "service",
+          "settings": {
+            "name": "Swedish",
+            "description": "Light-to-moderate pressure with long, flowing strokes to promote relaxation",
             "duration": "60 min",
             "price": ""
           }
@@ -100,8 +100,8 @@
         }
       },
       "block_order": [
-        "traditional",
         "deep-tissue",
+        "traditional",
         "cupping",
         "reflexology",
         "hot-stone",
