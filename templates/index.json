@@ -47,7 +47,7 @@
             "name": "Traditional Oriental Massage",
             "description": "Full-body acupressure and meridian work to restore balance and circulation.",
             "duration": "60 min",
-            "price": "$85"
+            "price": "$XX"
           }
         },
         "deep-tissue": {
@@ -56,7 +56,7 @@
             "name": "Deep Tissue",
             "description": "Firm, targeted pressure to release chronic tension in muscles and joints.",
             "duration": "60 min",
-            "price": "$95"
+            "price": "$XX"
           }
         },
         "cupping": {
@@ -65,7 +65,7 @@
             "name": "Ashiatsu",
             "description": "A unique technique using the foot to apply deep pressure to your body.",
             "duration": "60 min",
-            "price": "$100"
+            "price": "$XX"
           }
         },
         "reflexology": {
