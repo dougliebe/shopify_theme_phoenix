@@ -13,6 +13,7 @@
       "type": "hero-split",
       "settings": {
         "image": "shopify://shop_images/hands-massage.jpg",
+        "alt_text": "Massage therapy room at Nine Phoenix Massage in Stillwater, Oklahoma",
         "eyebrow": "Traditional Oriental Massage · Stillwater, OK",
         "heading": "Ancient techniques, honest healing.",
         "heading_size": 60,
@@ -29,6 +30,7 @@
       "type": "award-badge",
       "settings": {
         "image": "shopify://shop_images/bestofstillwater.jpg",
+        "alt_text": "Nine Phoenix Massage 2025 Best of Stillwater Oklahoma award badge",
         "eyebrow": "Community Recognition",
         "heading": "2025 Best of Stillwater Finalist",
         "text": "<p>Nine Phoenix Massage is proud to be named a finalist in the Stillwater News Press 2025 Best of Stillwater awards.</p>",
@@ -140,6 +142,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/Nine_Phoenix_Logos-selection.png",
+        "alt_text": "Nine Phoenix Massage phoenix emblem, traditional Oriental massage studio in Stillwater, Oklahoma",
         "layout": "image_first",
         "eyebrow": "Our Tradition",
         "heading": "Where pressure meets purpose.",
@@ -304,6 +307,15 @@
             "row_content": "<p>It is important to stay hydrated, rest, and listen to your body. Some soreness is not uncommon, especially after a deep tissue massage. Light stretching and heat application can help.</p>",
             "page": ""
           }
+        },
+        "q12": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where can I get a massage in Stillwater, Oklahoma?",
+            "icon": "none",
+            "row_content": "<p>Nine Phoenix Massage is a traditional Oriental massage studio located at 130 S Main St in Stillwater, Oklahoma. We offer Swedish, deep tissue, and Ashiatsu massage, with same-day appointments often available — just call or text (580) 716-8851.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -317,10 +329,12 @@
         "q8",
         "q9",
         "q10",
-        "q11"
+        "q11",
+        "q12"
       ],
       "settings": {
         "anchor": "faq",
+        "enable_faq_schema": true,
         "caption": "FAQ",
         "heading": "Good to know",
         "heading_size": "h0",
