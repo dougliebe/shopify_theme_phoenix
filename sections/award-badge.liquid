@@ -93,7 +93,7 @@
           {{
             section.settings.image
             | image_url: width: 400
-            | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.image.alt
+            | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.alt_text | default: section.settings.image.alt
           }}
         {%- else -%}
           <div class="nph-award-placeholder">Upload award badge image</div>
@@ -105,7 +105,7 @@
           {{
             section.settings.image
             | image_url: width: 400
-            | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.image.alt
+            | image_tag: loading: 'lazy', widths: '150,200,300,400', sizes: '150px', alt: section.settings.alt_text | default: section.settings.image.alt
           }}
         {%- else -%}
           <div class="nph-award-placeholder">Upload award badge image</div>
@@ -134,6 +134,12 @@
       "type": "image_picker",
       "id": "image",
       "label": "Badge image"
+    },
+    {
+      "type": "text",
+      "id": "alt_text",
+      "label": "Image alt text (SEO)",
+      "default": "Nine Phoenix Massage 2025 Best of Stillwater Oklahoma award badge"
     },
     {
       "type": "text",
