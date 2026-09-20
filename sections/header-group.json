@@ -17,8 +17,8 @@
         "announcement-0": {
           "type": "announcement",
           "settings": {
-            "text": "The owner is currently traveling — we'll be back soon! Call/text to check availability.",
-            "link": "tel:5807168851"
+            "text": "The owner is currently traveling — we'll be back soon!",
+            "link": ""
           }
         }
       },
